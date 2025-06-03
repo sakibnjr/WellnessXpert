@@ -5,9 +5,9 @@ const Hero = () => {
   return (
     <section id="hero">
       <div className="relative w-full h-screen overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/First/hero-bg.png')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-[url('/First/hero-bg.webp')] bg-cover bg-center" />
 
-        <div className="absolute inset-0 bg-[url('/First/mask.png')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-[url('/First/mask.webp')] bg-cover bg-center" />
 
         <div className="w-4/5 mx-auto relative z-10 text-white h-screen flex items-center justify-center md:justify-end">
           <div className="space-y-6">
