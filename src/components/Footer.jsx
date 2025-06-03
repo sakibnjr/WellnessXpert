@@ -1,18 +1,49 @@
-import logoDark from "../../public/contact/logoDark.svg";
+import logoDark from "/contact/logoDark.svg";
 import { RiInstagramFill } from "react-icons/ri";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
+import { motion } from "motion/react";
 
 const Footer = () => {
   return (
-    <footer className="max-w-7xl mx-auto px-4">
-      <div className="flex justify-between items-center">
-        <div className="flex items-center gap-2 py-4">
+    <motion.footer
+      className="w-full bg-white px-4 py-6"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    >
+      <motion.div
+        className="w-11/12 mx-auto flex flex-col md:flex-row justify-between items-center gap-4"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={{
+          hidden: {},
+          visible: { transition: { staggerChildren: 0.15 } },
+        }}
+      >
+        {/* Logo and Title */}
+        <motion.div
+          className="flex items-center gap-2"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.7 }}
+          transition={{ duration: 0.5 }}
+        >
           <img src={logoDark} alt="Site Logo" className="size-10" />
-          <span>WellnessXpert</span>
-        </div>
-        <ul className="flex gap-4 text-xs text-gray-500">
+          <span className="text-sm font-semibold">WellnessXpert</span>
+        </motion.div>
+
+        {/* Navigation */}
+        <motion.ul
+          className="flex flex-wrap justify-center md:justify-end gap-3 text-xs text-gray-500"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.7 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           <li className="text-black">
             <a href="#home">Home</a>
           </li>
@@ -28,21 +59,48 @@ const Footer = () => {
           <li>
             <a href="#contact">Contact</a>
           </li>
-        </ul>
-      </div>
-      <hr />
-      <div className="flex justify-between items-center py-4">
-        <div className="flex gap-x-2">
-          <RiInstagramFill />
-          <FaXTwitter />
-          <FaFacebook />
-          <FaYoutube />
-        </div>
-        <div className="text-xs text-gray-500">
+        </motion.ul>
+      </motion.div>
+
+      <hr className="my-4 border-gray-300" />
+
+      {/* Bottom Row */}
+      <motion.div
+        className="w-11/12 mx-auto flex flex-col sm:flex-row justify-between items-center gap-4"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={{
+          hidden: {},
+          visible: { transition: { staggerChildren: 0.15 } },
+        }}
+      >
+        {/* Social Icons */}
+        <motion.div
+          className="flex gap-x-4 text-lg text-gray-600"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.7 }}
+          transition={{ duration: 0.5 }}
+        >
+          <RiInstagramFill className="hover:text-black cursor-pointer" />
+          <FaXTwitter className="hover:text-black cursor-pointer" />
+          <FaFacebook className="hover:text-black cursor-pointer" />
+          <FaYoutube className="hover:text-black cursor-pointer" />
+        </motion.div>
+
+        {/* Copyright */}
+        <motion.div
+          className="text-xs text-gray-500 text-center sm:text-right"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.7 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           <p>Copyright {new Date().getFullYear()} | All rights reserved</p>
-        </div>
-      </div>
-    </footer>
+        </motion.div>
+      </motion.div>
+    </motion.footer>
   );
 };
 
